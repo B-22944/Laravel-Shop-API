@@ -27,8 +27,8 @@ class ProductSeeder extends Seeder
                 //faker select random price from 100.00 to 300.99
                 $product->price = $faker->randomFloat(100, 200, 300);
                 $product->description = $faker->text(50);
-                //Fake select random category_id from (1:Men, 2:Women, 3:Kids)
-                $product->category_id = $faker->randomElement([1,2,3]);
+                //Fake select random category_id from (1:Men, 2:Women, 3:Kids 4:Teenagers)
+                $product->category_id = $faker->randomElement([1,2,3,4]);
                 $product->save();
         }
     }
