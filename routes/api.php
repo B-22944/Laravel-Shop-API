@@ -9,6 +9,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('listCategory',[CategoryController::class,'listCategory']);
-Route::get('listProduct/{id?}',[ProductController::class,'listProduct']);
-Route::get('searchCategory/{id}',[ProductController::class,'searchCategory']);
+//Listing the products category
+Route::get('listCategory',[CategoryController::class,'listCategory'])->name('show_categories');
+//Listing the products
+Route::get('listProduct/{id?}',[ProductController::class,'listProduct'])->name('show_products');;
+//Searching the data on the basis of category_id
+Route::get('category/{id}',[ProductController::class,'category'])->name('search_category');;
