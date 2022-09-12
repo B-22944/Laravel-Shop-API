@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->float('price');
             $table->text('description');
+            //Assigninig foreign key with onDelete('cascade') to specify whether to deleted rows in a child table
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });
