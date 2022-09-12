@@ -11,5 +11,12 @@ class ProductController extends Controller
     public function listProduct($id=null){
         return $id?Product::find($id):Product::all();
     }
+
+    //Searching for Categories
+    public function searchCategory($id){
+
+            $categories = DB::table('employees')->where('category_id','=',$id);    
+            return array($categories);    
+    }
 }
 
