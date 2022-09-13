@@ -11,14 +11,27 @@ class ProductController extends Controller
     //Fetching the product from database with id
     //if id is not given it will show all results
     public function listProduct($id=null){
-        return $id?Product::find($id):Product::all();
+        try {
+            return $id?Product::find($id):Product::all();
+        }
+        catch(Exception $e){
+            return "No Data Found";
+        }
+
     }
 
     //Searching for Categories
     public function category($id){
-        //Elequent Query for searching category id from products table
-            $categories = Product::where('category_id', '=', $id)->get();    
+
+        try {
+            //Elequent Query for searching category id from products table
+            $categories = Product::where('category_id', '=', $id)->get();
             return $categories;    
+        } 
+        catch (Exception $e) {
+            return "NO Data Found";
+        }
+        
     }
 }
 
