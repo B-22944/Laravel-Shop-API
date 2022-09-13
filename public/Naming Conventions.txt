@@ -1,0 +1,62 @@
+Naming Conventions
+//Routes
+Route::get('/posts',['PostController::class','index'])->name('post.index');
+Route::get('/posts/create',['PostController::class','create'])->name('post.create');
+Route::get('/posts/{id}',['PostController::class','update'])->name('post.update');
+
+//Blade Files
+all.blade.php
+all_posts.blade.php
+
+//Conreollers
+php artisan make:controller PostController
+php artisan make:controller UserController
+php artisan make:controller ProductController
+php artisan make:controller AuthController
+php artisan make:controller ProductCategoryController
+
+//Database Tables
+php artisan make:migration posts
+php artisan make:migration employees
+php artisan make:migration products
+php artisan make:migration product_categories
+php artisan make:migration project_tasks
+php artisan make:migration uploaded_images
+
+//Databasse Table Columns
+$table->string('image');
+$table->string('title');
+$table->float('price');
+$table->text('description');
+$table->foreignId('category_id')->constrained('categories');
+
+//Model(add -m to make auto migration)
+php artisan make:model User -m
+php artisan make:model ForumThread -m
+php artisan make:model Comment -m
+
+//Variable Name
+$name = 'Usama';
+$userName = 'Usama';
+$employees = Employee::all();
+$users = ['Usama','Hassan','Saqib','Ali','Rizwan'];
+$singletonObjectsRegistry = 'something';
+
+//Function or Method Name
+getContextName();
+getEmployeesData();
+someNiceMethodName()
+setUser();
+getUser();
+
+//Interface Names
+ObjectInterface
+ObjectManagerInterface
+MySubObjectInterface
+MyHtmlParserInterface
+
+//Constants
+STUFF_LEVEL
+COOLNESS_FACTOR
+PATTERN_MATCH_EMAILADDRESS
+PATTERN_MATCH_VALIDHTMLTAGS
