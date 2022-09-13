@@ -9,6 +9,11 @@ class CategoryController extends Controller
 {
     //Fetching all the categoriess from database
     public function listCategory(){
-        return Category::all();
+        try{
+            return Category::all();
+        }
+        catch (Exception $e){
+            return "No Data Found";
+        }
     }
 }
