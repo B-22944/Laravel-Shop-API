@@ -52,7 +52,7 @@ class CategoryController extends Controller
     }
 
     public function update(Request $request){
-        //in try $categories is requesting to add data
+        //in try $categories is requesting to update data
         try {
             $category = Category::find($request->id);
             $category->name=$request->name;

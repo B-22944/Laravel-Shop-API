@@ -9,7 +9,7 @@
 <body>
     <h4>Add Category</h4>
     <hr>
-    <!-- Showing Status Message if data successfully add -->
+    <!-- Showing Status Message if add, update and delete is successfully -->
         @if(session('status'))
             <div>{{session('status')}}</div>    
         @endif

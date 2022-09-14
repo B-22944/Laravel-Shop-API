@@ -14,6 +14,7 @@
         <input type="hidden" name="id" value="{{$category->id}}">
         <label>Name:</label><input type="text" name="name" value="{{$category->name}}"><br><br>
         <input type="submit" value="Update Category">
+    
     </form>
     
 </body>
