@@ -33,15 +33,30 @@ class ProductController extends Controller
         return ProductResource::collection($products);
     }
 
+    //Storing Data through Postman in Raw jason format 
     public function store(Request $request){
-        $product = new Product();
-        $product->image=$request->image;
-        $product->title=$request->title;
-        $product->price=$request->price;
-        $product->description=$request->description;
-        $product->category_id=$request->category_id;
-        if ($product->save()) {
-            return new ProductResource($product);
+        
+        $request->validate([
+            'image'=>'required',
+            'title'=>'required',
+            'price'=>'required',           
+            'description'=>'required',
+            'category_id'=>'required',
+        ]);
+
+        try {
+            $product = new Product;
+            $product->image = $request->image;        
+            $product->title = $request->title;
+            $product->price = $request->price;
+            $product->description = $request->description;
+            $product->category_id = $request->category_id;
+                if ($product->save()) {
+                    return new ProductResource($product);
+                }
+        } catch (\Exception $e) {
+            // Set a response code
+            var_dump(http_response_code(404));
         }
     }
 
@@ -51,15 +66,31 @@ class ProductController extends Controller
         return new ProductResource($product);
     }
 
+    //Storing Data through Postman in Raw jason format
     public function update(Request $request, $id){
-        $product = Product::findOrFail($id);
-        $product->image = $request->image;
-        $product->title = $request->title;
-        $product->price = $request->price;
-        $product->description = $request->description;
-        $product->category_id = $request->category_id;
-        if ($product->save()) {
-            return new ProductResource($product);
+
+        $request->validate([
+            'image'=>'required',
+            'title'=>'required',
+            'price'=>'required',           
+            'description'=>'required',
+            'category_id'=>'required',
+        ]);
+        
+        try {
+            
+            $product = Product::findOrFail($id);
+            $product->image = $request->image;        
+            $product->title = $request->title;
+            $product->price = $request->price;
+            $product->description = $request->description;
+            $product->category_id = $request->category_id;
+                if ($product->save()) {
+                    return new ProductResource($product);
+            }
+        } catch (\Exception $e) {
+            // Set a response code
+            var_dump(http_response_code(404));
         }
     }
 

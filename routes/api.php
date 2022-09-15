@@ -11,7 +11,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Listing the products category
 Route::get('listCategory',[CategoryController::class,'listCategory'])->name('categories.show');
-//Listing the products
-Route::get('listProduct/{id?}',[ProductController::class,'listProduct'])->name('products.show');;
 //Searching the data on the basis of category_id
-Route::get('category/{id}',[ProductController::class,'category'])->name('products.search_category');;
+Route::get('category/{id}',[ProductController::class,'category'])->name('products.search_category');
+
+/*
+API CRUD Routes
+*/
+Route::get('/products',[ProductController::class,'showAll'])->name('products.show_all');
+Route::post('/product/add',[ProductController::class,'store'])->name('products.store');
+Route::get('/products/{id}',[ProductController::class,'show'])->name('APIproducts.show');
+Route::put('/products/{id}',[ProductController::class,'update'])->name('products.update');
+Route::delete('/products/{id}',[ProductController::class,'destroy'])->name('products.delete');
