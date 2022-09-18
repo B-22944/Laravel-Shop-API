@@ -13,4 +13,10 @@ Interface ProductRepositoryInterface{
     public function findProduct($id);
     public function deleteProduct($id);
     public function updateProduct($id, $data);
+    /*
+    Auth User Functions
+    */
+    public function userRegister($data);
+    public function userLogin($data);
+    public function userData();
 }

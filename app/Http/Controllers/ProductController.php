@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Http\Requests\ApiRequest;
-use function is_null;
 
 class ProductController extends Controller
 {
@@ -102,5 +101,6 @@ class ProductController extends Controller
             return response()->json(['message'=>'Error: Not Found'],404);
         }
     }
+    
 }
 
